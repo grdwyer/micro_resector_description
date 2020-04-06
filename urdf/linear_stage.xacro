@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<robot name="linear_stage" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find micro_resector_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find micro_resector_description)/urdf/linear_stage.trans" />
+<xacro:include filename="$(find micro_resector_description)/urdf/linear_stage.gazebo" />
+
+<xacro:macro name="linear_stage" params="prefix hardware_interface">
+  <link name="${prefix}_base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0015 0.0"/>
+      <mass value="0.058579061972031825"/>
+      <inertia ixx="1.2e-05" ixy="-0.0" ixz="-0.0" iyy="2.4e-05" iyz="0.0" izz="1.2e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0.0095 0"/>
+      <geometry>
+        <mesh filename="package://micro_resector_description/meshes/lin_base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.0095 0"/>
+      <geometry>
+        <mesh filename="package://micro_resector_description/meshes/lin_base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${prefix}_stage_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 -0.00028 0.0"/>
+      <mass value="0.11339718225370693"/>
+      <inertia ixx="2.3e-05" ixy="0.0" ixz="0.0" iyy="4.6e-05" iyz="0.0" izz="2.3e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.0"/>
+      <geometry>
+        <mesh filename="package://micro_resector_description/meshes/lin_stage_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.0"/>
+      <geometry>
+        <mesh filename="package://micro_resector_description/meshes/lin_stage_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="${prefix}_joint" type="prismatic">
+    <origin rpy="0 0 0" xyz="0.0 0.0095 0.0"/>
+    <parent link="${prefix}_base_link"/>
+    <child link="${prefix}_stage_link"/>
+    <axis xyz="1 0.0 0.0"/>
+    <limit effort="100" lower="-0.015" upper="0.015" velocity="0.0045"/>
+  </joint>
+
+  <xacro:linear_stage_gazebo prefix="$(arg prefix)"/>
+  <xacro:linear_stage_transmission prefix="$(arg prefix)" hardware_interface="${hardware_interface}"/>
+
+</xacro:macro>
+
+</robot>

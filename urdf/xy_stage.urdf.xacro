@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="stage">
+    
+    <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+    <xacro:arg name="initial_z" default="0.0"/>   
+    
+    <link name="base_link"/>
+
+    <xacro:include filename="$(find micro_resector_description)/urdf/linear_stage.xacro"/>
+
+    <xacro:arg name="prefix" default="x"/>
+    <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+
+    <joint name="x_linear_stage_world_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="x_base_link"/>
+        <origin xyz="0.0 0.0 0.00" rpy="${pi/2} 0.0 0.0"/>
+    </joint>
+    
+    <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="x">
+    </xacro:linear_stage>
+
+    <joint name="y_linear_stage_world_joint" type="fixed">
+        <parent link="x_stage_link"/>
+        <child link="y_base_link"/>
+        <origin xyz="0.0 0.0 0.00" rpy="0.0 ${pi/2} 0.0"/>
+    </joint>
+    
+    <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="y">
+    </xacro:linear_stage>
+
+
+</robot>
