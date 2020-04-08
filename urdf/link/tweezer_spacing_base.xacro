@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<robot name="tweezer_spacing_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="tweezer_spacing_base" params="prefix">
+  <link name="${prefix}_spacing_base_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0.0025 0"/>
+      <geometry>
+        <box size="0.177 0.005 0.05"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 -0.01 0"/>
+      <geometry>
+        <box size="0.177 0.005 0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${prefix}_spacing_left_side_link"/>
+    
+  <joint name="${prefix}_spacing_left_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0635 0.005 0"/>
+    <parent link="${prefix}_spacing_base_link"/>
+    <child link="${prefix}_spacing_left_side_link"/>
+  </joint>
+
+  <link name="${prefix}_spacing_right_side_link"/>
+    
+  <joint name="${prefix}_spacing_right_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.0635 0.005 0"/>
+    <parent link="${prefix}_spacing_base_link"/>
+    <child link="${prefix}_spacing_right_side_link"/>
+  </joint>
+</xacro:macro>
+
+</robot>

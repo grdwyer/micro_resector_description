@@ -2,23 +2,31 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iiwa">
     
     <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
-    <xacro:arg name="initial_z" default="0.0"/>   
-    
+    <xacro:property name="type" value="rot"/>   
+    <xacro:arg name="prefix" default="x"/>
+
     <link name="base_link"/>
 
-    <xacro:include filename="$(find micro_resector_description)/urdf/linear_stage.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/materials.xacro" />
+    <xacro:include filename="$(find micro_resector_description)/urdf/stage/linear_stage.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/stage/rotation_stage.xacro"/>
+    
 
-    <xacro:arg name="prefix" default="x"/>
-    <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
-
-    <joint name="$(arg prefix)_linear_stage_world_joint" type="fixed">
+    <joint name="$(arg prefix)_${type}_stage_world_joint" type="fixed">
         <parent link="base_link"/>
-        <child link="$(arg prefix)_base_link"/>
+        <child link="$(arg prefix)_${type}_base_link"/>
         <origin xyz="0.0 0.0 0.00" rpy="${pi/2} 0.0 0.0"/>
     </joint>
     
-    <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="$(arg prefix)">
-    </xacro:linear_stage>
+    <xacro:if value="${type == 'lin'}">
+        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="$(arg prefix)">
+        </xacro:linear_stage>
+    </xacro:if>
+
+    <xacro:if value="${type == 'rot'}">
+        <xacro:rotation_stage hardware_interface="$(arg hardware_interface)" prefix="$(arg prefix)">
+        </xacro:rotation_stage>
+    </xacro:if>
 
 
 </robot>

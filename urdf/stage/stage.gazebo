@@ -3,11 +3,11 @@
 
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
-<xacro:macro name="linear_stage_gazebo" params="prefix">
+<xacro:macro name="stage_gazebo" params="prefix type">
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="control"/>
   </gazebo>
-  <gazebo reference="$(arg prefix)_base_link">
+  <gazebo reference="$(arg prefix)_${type}_base_link">
     <material>${body_color}</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
@@ -15,7 +15,7 @@
     <gravity>true</gravity>
   </gazebo>
 
-  <gazebo reference="$(arg prefix)_stage_link">
+  <gazebo reference="$(arg prefix)_${type}_stage_link">
     <material>${body_color}</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>

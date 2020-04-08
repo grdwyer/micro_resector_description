@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="tweezer_system">
+    
+    <xacro:include filename="$(find micro_resector_description)/urdf/stage/linear_stage.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/link/l_bracket.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/link/tweezer_spacing_base.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/tools/tweezer.xacro"/>
+
+    <xacro:macro name="tweezer_system" params="hardware_interface">
+        <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+        <xacro:arg name="prefix" default="x"/>
+        <link name="tweezer_system_base_link"/>
+
+        <joint name="tweezer_x_linear_stage_world_joint" type="fixed">
+            <parent link="tweezer_system_base_link"/>
+            <child link="tweezer_x_lin_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="${pi/2} 0.0 0.0"/>
+        </joint>
+        
+        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="tweezer_x">
+        </xacro:linear_stage>
+
+        <joint name="tweezer_spacing_stage_joint" type="fixed">
+            <parent link="tweezer_x_lin_stage_link"/>
+            <child link="tweezer_spacing_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 ${pi/2} 0.0"/>
+        </joint>
+
+        <xacro:tweezer_spacing_base prefix="tweezer">
+        </xacro:tweezer_spacing_base>
+
+        Left Tweezzer
+        <joint name="tweezer_left_stage_spacing_bracket_joint" type="fixed">
+            <parent link="tweezer_spacing_left_side_link"/>
+            <child link="tweezer_left_y_lin_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 0.0"/>
+        </joint>
+
+        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="tweezer_left_y">
+        </xacro:linear_stage>
+
+        <joint name="tweezer_left_l_bracket_joint" type="fixed">
+            <parent link="tweezer_left_y_lin_stage_link"/>
+            <child link="tweezer_left_z_bracket_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 -${pi/2} 0.0"/>
+        </joint>
+
+        <xacro:l_bracket prefix="tweezer_left_z">
+        </xacro:l_bracket>
+
+        <joint name="tweezer_left_z_linear_stage_joint" type="fixed">
+            <parent link="tweezer_left_z_bracket_side_link"/>
+            <child link="tweezer_left_z_lin_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 ${pi/2} 0.0"/>
+        </joint>
+        
+        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="tweezer_left_z">
+        </xacro:linear_stage>
+
+        <joint name="tweezer_left_joint" type="fixed">
+            <parent link="tweezer_left_z_lin_stage_link"/>
+            <child link="left_tweezer_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 0.0"/>
+        </joint>
+        
+        <xacro:tweezer prefix="left" direction="left">
+        </xacro:tweezer>
+
+        <!-- Right Tweezzer -->
+        <joint name="tweezer_right_stage_spacing_bracket_joint" type="fixed">
+            <parent link="tweezer_spacing_right_side_link"/>
+            <child link="tweezer_right_y_lin_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 0.0"/>
+        </joint>
+
+        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="tweezer_right_y">
+        </xacro:linear_stage>
+
+        <joint name="tweezer_right_l_bracket_joint" type="fixed">
+            <parent link="tweezer_right_y_lin_stage_link"/>
+            <child link="tweezer_right_z_bracket_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 ${pi/2} 0.0"/>
+        </joint>
+
+        <xacro:l_bracket prefix="tweezer_right_z">
+        </xacro:l_bracket>
+
+        <joint name="tweezer_right_z_linear_stage_joint" type="fixed">
+            <parent link="tweezer_right_z_bracket_side_link"/>
+            <child link="tweezer_right_z_lin_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 ${pi/2} 0.0"/>
+        </joint>
+        
+        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="tweezer_right_z">
+        </xacro:linear_stage>
+
+        <joint name="tweezer_right_joint" type="fixed">
+            <parent link="tweezer_right_z_lin_stage_link"/>
+            <child link="right_tweezer_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 0.0"/>
+        </joint>
+        
+        <xacro:tweezer prefix="right" direction="right">
+        </xacro:tweezer>
+    </xacro:macro>
+</robot>

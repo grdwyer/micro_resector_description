@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<xacro:macro name="linear_stage_transmission" params="hardware_interface prefix">
-    <transmission name="${prefix}_tran_1">
+<xacro:macro name="stage_transmission" params="hardware_interface prefix type">
+    <transmission name="${prefix}_${type}_tran">
       <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${prefix}_lin_joint">
+      <joint name="${prefix}_${type}_joint">
 	<hardwareInterface>hardware_interface/${hardware_interface}</hardwareInterface>
       </joint>
-      <actuator name="${prefix}_motor_1">
+      <actuator name="${prefix}_${type}_motor">
 	<hardwareInterface>hardware_interface/${hardware_interface}</hardwareInterface>
 	<mechanicalReduction>1</mechanicalReduction>
       </actuator>
