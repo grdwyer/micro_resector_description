@@ -16,6 +16,10 @@
         <box size="0.177 0.005 0.05"/>
       </geometry>
     </collision>
+    <inertial>
+      <mass value="0.1" />
+      <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="${prefix}_spacing_left_side_link"/>

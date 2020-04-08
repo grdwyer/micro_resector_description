@@ -55,8 +55,8 @@
     <limit effort="100" velocity="${(pi/180) * 15}"/>
   </joint>
 
-  <xacro:stage_gazebo prefix="$(arg prefix)" type="rot"/>
-  <xacro:stage_transmission prefix="$(arg prefix)" hardware_interface="${hardware_interface}" type="rot"/>
+  <xacro:stage_gazebo prefix="${prefix}" type="rot"/>
+  <xacro:stage_transmission prefix="${prefix}" hardware_interface="${hardware_interface}" type="rot"/>
 
 </xacro:macro>
 

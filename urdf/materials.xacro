@@ -37,4 +37,7 @@
     <color rgba="1.0 1.0 1.0 1.0"/>
   </material>
 
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="control"/>
+  </gazebo>
 </robot>

@@ -1,0 +1,44 @@
+
+# Publish all joint states -----------------------------------
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 500  
+
+scalpel_controller:
+    type: position_controllers/JointTrajectoryController
+    joints: 
+        - scalpel_x_lin_joint
+        - scalpel_y_lin_joint
+        - scalpel_z_lin_joint
+    constraints:
+        goal_time: 0.5                   # Override default
+
+    state_publish_rate:  500            # Override default
+    action_monitor_rate: 500            # Override default
+    stop_trajectory_duration: 0        # Override default
+
+sample_holder_controller:
+    type: position_controllers/JointTrajectoryController
+    joints: 
+        - centre_rot_joint
+    constraints:
+        goal_time: 0.5                   # Override default
+
+    state_publish_rate:  500            # Override default
+    action_monitor_rate: 500            # Override default
+    stop_trajectory_duration: 0        # Override default
+
+tweezer_controller:
+    type: position_controllers/JointTrajectoryController
+    joints: 
+        - tweezer_x_lin_joint
+        - tweezer_left_y_lin_joint
+        - tweezer_left_z_lin_joint
+        - tweezer_right_y_lin_joint
+        - tweezer_right_z_lin_joint
+    constraints:
+        goal_time: 0.5                   # Override default
+
+    state_publish_rate:  500            # Override default
+    action_monitor_rate: 500            # Override default
+    stop_trajectory_duration: 0        # Override default
