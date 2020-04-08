@@ -11,7 +11,7 @@
         <geometry>
           <mesh filename="package://micro_resector_description/meshes/tools/tweezer_left.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="silver"/>
+        <material name="red"/>
       </visual>
       <collision>
         <origin rpy="0 0 -${pi/2}" xyz="-0.133 0.01 0.0"/>
@@ -37,7 +37,7 @@
         <geometry>
           <mesh filename="package://micro_resector_description/meshes/tools/tweezer_right.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <material name="silver"/>
+        <material name="green"/>
       </visual>
       <collision>
         <origin rpy="0 0 -${pi/2}" xyz="-0.133 0.01 0.0"/>
