@@ -46,5 +46,12 @@
 
     <xacro:microscope_camera type="mono"/>
 
+    <joint name="sample_joint" type="fixed">
+        <parent link="sample_link"/>
+        <child link="brain_slice_base_link"/>
+        <origin xyz="0 0.0 0.00" rpy="0 0.0 0.0"/>
+    </joint>
+    <xacro:include filename="$(find micro_resector_description)/urdf/samples/brain_slice.urdf.xacro"/>
+
     <xacro:include filename="$(find micro_resector_description)/urdf/full_setup.gazebo.xacro"/>
 </robot>

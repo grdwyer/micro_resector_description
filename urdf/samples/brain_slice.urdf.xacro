@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<robot name="brain_slice" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- <xacro:macro name="brain_slice" params="prefix"> -->
+    <link name="brain_slice_base_link">
+        <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.058579061972031825"/>
+        <inertia ixx="1.2e-05" ixy="-0.0" ixz="-0.0" iyy="2.4e-05" iyz="0.0" izz="1.2e-05"/>
+        </inertial>
+        <visual>
+        <origin rpy="${-pi/2} 0 0" xyz="0 0 0"/>
+        <geometry>
+            <mesh filename="package://micro_resector_description/meshes/samples/brain_slice.stl" scale="0.002 0.002 0.002"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+        <collision>
+        <origin rpy="${-pi/2} 0 0" xyz="0 0 0"/>
+        <geometry>
+            <mesh filename="package://micro_resector_description/meshes/samples/brain_slice.stl" scale="0.002 0.002 0.002"/>
+        </geometry>
+        </collision>
+    </link>
+    <gazebo reference="brain_slice_base_link">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/White</material>
+    </gazebo>
+
+<!-- </xacro:macro> -->
+
+</robot>
