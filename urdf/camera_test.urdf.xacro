@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="camera">
+    
+    <link name="base_link"/>
+ 
+    <xacro:include filename="$(find micro_resector_description)/urdf/tools/microscope_camera.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/materials.xacro" />
+
+    <joint name="camera_joint" type="fixed">
+        <origin xyz="0 0 0.1" rpy="0 0 ${pi}"/>
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+    </joint>
+
+    <xacro:microscope_camera topic_namespace="microscope"/>
+
+</robot>

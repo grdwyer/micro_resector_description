@@ -9,6 +9,7 @@
     <xacro:include filename="$(find micro_resector_description)/urdf/tweezer_system.xacro" />
     <xacro:include filename="$(find micro_resector_description)/urdf/scalpel_system.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/sample_holder_system.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/tools/microscope_camera.xacro"/>
 
     <joint name="tweezer_to_base" type="fixed">
         <parent link="base_link"/>
@@ -36,4 +37,14 @@
 
     <xacro:sample_holder hardware_interface="$(arg hardware_interface)">
     </xacro:sample_holder>
+
+    <joint name="camera_joint" type="fixed">
+        <origin xyz="0 0 0.1" rpy="0 ${pi/2} 0"/>
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+    </joint>
+
+    <xacro:microscope_camera type="mono"/>
+
+    <xacro:include filename="$(find micro_resector_description)/urdf/full_setup.gazebo.xacro"/>
 </robot>

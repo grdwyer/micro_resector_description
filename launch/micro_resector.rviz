@@ -1,0 +1,483 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 100
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /Grid1
+        - /RobotModel1
+        - /TF1
+        - /Camera1
+      Splitter Ratio: 0.5
+    Tree Height: 500
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: Camera
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 0.10000000149011612
+      Class: rviz/Grid
+      Color: 128; 128; 131
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_link_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        centre_rot_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        centre_rot_stage_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_tweezer_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_tweezer_prong_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_tweezer_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_tweezer_prong_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        sample_holder_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        sample_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scalpel_system_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        scalpel_x_lin_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scalpel_x_lin_stage_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scalpel_y_lin_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scalpel_y_lin_stage_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scalpel_z_bracket_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scalpel_z_bracket_side_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        scalpel_z_lin_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scalpel_z_lin_stage_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scalpel_z_scalpel_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scalpel_z_scalpel_blade_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tweezer_left_y_lin_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_left_y_lin_stage_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_left_z_bracket_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_left_z_bracket_side_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tweezer_left_z_lin_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_left_z_lin_stage_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_right_y_lin_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_right_y_lin_stage_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_right_z_bracket_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_right_z_bracket_side_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tweezer_right_z_lin_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_right_z_lin_stage_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_spacing_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_spacing_left_side_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tweezer_spacing_right_side_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tweezer_system_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tweezer_x_lin_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tweezer_x_lin_stage_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        base_link:
+          Value: true
+        camera_link:
+          Value: true
+        camera_link_optical:
+          Value: true
+        centre_rot_base_link:
+          Value: true
+        centre_rot_stage_link:
+          Value: true
+        left_tweezer_base_link:
+          Value: true
+        left_tweezer_prong_link:
+          Value: true
+        right_tweezer_base_link:
+          Value: true
+        right_tweezer_prong_link:
+          Value: true
+        sample_holder_base_link:
+          Value: true
+        sample_link:
+          Value: true
+        scalpel_system_base_link:
+          Value: true
+        scalpel_x_lin_base_link:
+          Value: true
+        scalpel_x_lin_stage_link:
+          Value: true
+        scalpel_y_lin_base_link:
+          Value: true
+        scalpel_y_lin_stage_link:
+          Value: true
+        scalpel_z_bracket_base_link:
+          Value: true
+        scalpel_z_bracket_side_link:
+          Value: true
+        scalpel_z_lin_base_link:
+          Value: true
+        scalpel_z_lin_stage_link:
+          Value: true
+        scalpel_z_scalpel_base_link:
+          Value: true
+        scalpel_z_scalpel_blade_link:
+          Value: true
+        tweezer_left_y_lin_base_link:
+          Value: true
+        tweezer_left_y_lin_stage_link:
+          Value: true
+        tweezer_left_z_bracket_base_link:
+          Value: true
+        tweezer_left_z_bracket_side_link:
+          Value: true
+        tweezer_left_z_lin_base_link:
+          Value: true
+        tweezer_left_z_lin_stage_link:
+          Value: true
+        tweezer_right_y_lin_base_link:
+          Value: true
+        tweezer_right_y_lin_stage_link:
+          Value: true
+        tweezer_right_z_bracket_base_link:
+          Value: true
+        tweezer_right_z_bracket_side_link:
+          Value: true
+        tweezer_right_z_lin_base_link:
+          Value: true
+        tweezer_right_z_lin_stage_link:
+          Value: true
+        tweezer_spacing_base_link:
+          Value: true
+        tweezer_spacing_left_side_link:
+          Value: true
+        tweezer_spacing_right_side_link:
+          Value: true
+        tweezer_system_base_link:
+          Value: true
+        tweezer_x_lin_base_link:
+          Value: true
+        tweezer_x_lin_stage_link:
+          Value: true
+      Marker Scale: 0.05000000074505806
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        base_link:
+          camera_link:
+            camera_link_optical:
+              {}
+          sample_holder_base_link:
+            centre_rot_base_link:
+              centre_rot_stage_link:
+                sample_link:
+                  {}
+          scalpel_system_base_link:
+            scalpel_x_lin_base_link:
+              scalpel_x_lin_stage_link:
+                scalpel_y_lin_base_link:
+                  scalpel_y_lin_stage_link:
+                    scalpel_z_bracket_base_link:
+                      scalpel_z_bracket_side_link:
+                        scalpel_z_lin_base_link:
+                          scalpel_z_lin_stage_link:
+                            scalpel_z_scalpel_base_link:
+                              scalpel_z_scalpel_blade_link:
+                                {}
+          tweezer_system_base_link:
+            tweezer_x_lin_base_link:
+              tweezer_x_lin_stage_link:
+                tweezer_spacing_base_link:
+                  tweezer_spacing_left_side_link:
+                    tweezer_left_y_lin_base_link:
+                      tweezer_left_y_lin_stage_link:
+                        tweezer_left_z_bracket_base_link:
+                          tweezer_left_z_bracket_side_link:
+                            tweezer_left_z_lin_base_link:
+                              tweezer_left_z_lin_stage_link:
+                                left_tweezer_base_link:
+                                  left_tweezer_prong_link:
+                                    {}
+                  tweezer_spacing_right_side_link:
+                    tweezer_right_y_lin_base_link:
+                      tweezer_right_y_lin_stage_link:
+                        tweezer_right_z_bracket_base_link:
+                          tweezer_right_z_bracket_side_link:
+                            tweezer_right_z_lin_base_link:
+                              tweezer_right_z_lin_stage_link:
+                                right_tweezer_base_link:
+                                  right_tweezer_prong_link:
+                                    {}
+      Update Interval: 0
+      Value: true
+    - Class: rviz/Camera
+      Enabled: true
+      Image Rendering: background and overlay
+      Image Topic: /microscope/camera1/image_raw
+      Name: Camera
+      Overlay Alpha: 0.5
+      Queue Size: 2
+      Transport Hint: compressed
+      Unreliable: false
+      Value: true
+      Visibility:
+        Grid: true
+        RobotModel: true
+        TF: true
+        Value: true
+      Zoom Factor: 1
+  Enabled: true
+  Global Options:
+    Background Color: 255; 255; 255
+    Default Light: true
+    Fixed Frame: base_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 0.400934636592865
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0.0011989946942776442
+        Y: -0.023090822622179985
+        Z: 0.031360894441604614
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.24039721488952637
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 1.5235885381698608
+    Saved: ~
+Window Geometry:
+  Camera:
+    collapsed: false
+  Displays:
+    collapsed: false
+  Height: 1025
+  Hide Left Dock: false
+  Hide Right Dock: true
+  QMainWindow State: 000000ff00000000fd00000004000000000000015600000361fc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b00000293000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d00650072006101000002d4000000c80000001600ffffff000000010000010f00000361fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b00000361000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000073d00000044fc0100000002fb0000000800540069006d006501000000000000073d0000024400fffffffb0000000800540069006d00650100000000000004500000000000000000000005e10000036100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: true
+  Width: 1853
+  X: 67
+  Y: 27

@@ -13,7 +13,7 @@
 
     <!-- RViz -->
     <group if="$(arg rviz)">
-        <node type="rviz" name="rviz" pkg="rviz" args="-d $(find micro_resector_description)/launch/urdf.rviz" />
+        <node type="rviz" name="rviz" pkg="rviz" args="-d $(find micro_resector_description)/launch/micro_resector.rviz" />
     </group>
 
     <!-- Gazebo -->
@@ -30,10 +30,11 @@
     <!-- ROS Controller -->
     <rosparam file="$(find micro_resector_description)/launch/controller.yaml" command="load" />
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-          output="screen" args="joint_state_controller scalpel_controller tweezer_controller sample_holder_controller --shutdown-timeout 2" />
+          output="screen" args="joint_state_controller scalpel_controller tweezer_controller sample_holder_controller" />
 
     <!-- Robot State Publisher -->
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
         <!-- <remap from="joint_states" to="/$(arg robot_name)/joint_states" /> -->
     </node>
 </launch>
+ 
