@@ -344,7 +344,7 @@ Visualization Manager:
           Value: true
         tweezer_x_lin_stage_link:
           Value: true
-      Marker Scale: 0.05000000074505806
+      Marker Scale: 0.025000000074505806
       Name: TF
       Show Arrows: true
       Show Axes: true

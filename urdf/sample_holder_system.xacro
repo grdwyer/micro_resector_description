@@ -20,21 +20,21 @@
         <joint name="rotation_stage_to_sample" type="fixed">
             <parent link="centre_rot_stage_link"/>
             <child link="sample_link"/>
-            <origin xyz="0 0.015 0.00" rpy="0 0.0 0.0"/>
+            <origin xyz="0 0.015 0.00" rpy="-${pi/2} 0.0 0.0"/>
         </joint>
 
         <link name="sample_link">
             <visual>
-                <origin rpy="0 0 0" xyz="0 -0.0075 0"/>
+                <origin rpy="0 0 0" xyz="0 0 -0.0075"/>
                 <geometry>
-                    <box size="0.03 0.015 0.03"/>
+                    <box size="0.03 0.03 0.015"/>
                 </geometry>
                 <material name="orange"/>
             </visual>
                 <collision>
-                <origin rpy="0 0 0" xyz="0 -0.0075 0"/>
+                <origin rpy="0 0 0" xyz="0 0 -0.0075 "/>
                 <geometry>
-                    <box size="0.03 0.015 0.03"/>
+                    <box size="0.03 0.03 0.015"/>
                 </geometry>
             </collision>
             <inertial>
