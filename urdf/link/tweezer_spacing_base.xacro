@@ -25,7 +25,7 @@
   <link name="${prefix}_spacing_left_side_link"/>
     
   <joint name="${prefix}_spacing_left_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.0635 0.005 0"/>
+    <origin rpy="0 0 0" xyz="0.0535 0.005 0"/>
     <parent link="${prefix}_spacing_base_link"/>
     <child link="${prefix}_spacing_left_side_link"/>
   </joint>
@@ -33,7 +33,7 @@
   <link name="${prefix}_spacing_right_side_link"/>
     
   <joint name="${prefix}_spacing_right_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.0635 0.005 0"/>
+    <origin rpy="0 0 0" xyz="-0.0535 0.005 0"/>
     <parent link="${prefix}_spacing_base_link"/>
     <child link="${prefix}_spacing_right_side_link"/>
   </joint>

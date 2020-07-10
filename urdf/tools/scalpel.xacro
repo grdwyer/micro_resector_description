@@ -34,7 +34,7 @@
   <link name="${prefix}_scalpel_blade_tip_link"/>
     
   <joint name="${prefix}_scalpel_blade_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.002 0 0"/>
+    <origin rpy="0 0 0" xyz="0.0025 0 0"/>
     <parent link="${prefix}_scalpel_blade_base_link"/>
     <child link="${prefix}_scalpel_blade_tip_link"/>
   </joint>
