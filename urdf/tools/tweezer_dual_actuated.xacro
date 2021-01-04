@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<robot name="tweezer" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="tweezer" params="prefix direction">
+  <xacro:property name="type" value="${direction}"/>
+
+  <xacro:if value="${type == 'left'}">
+    <link name="${prefix}_tweezer_base_link">
+      <visual>
+        <origin rpy="0 0 -${pi/2}" xyz="-0.133 0.01 0.0"/>
+        <geometry>
+          <mesh filename="package://micro_resector_description/meshes/tools/tweezer_left.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="red"/>
+      </visual>
+      <collision>
+        <origin rpy="0 0 -${pi/2}" xyz="-0.133 0.01 0.0"/>
+        <geometry>
+          <mesh filename="package://micro_resector_description/meshes/tools/tweezer_left.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.1" />
+        <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+    </link>
+
+    <link name="${prefix}_tweezer_prong_link"/>
+      
+    <joint name="${prefix}_tweezer_joint" type="fixed">
+      <origin rpy="${pi} -${pi/2} 0" xyz="-0.015639 0.008 0.15847"/>
+      <parent link="${prefix}_tweezer_base_link"/>
+      <child link="${prefix}_tweezer_prong_link"/>
+    </joint>
+  </xacro:if>
+
+  <xacro:if value="${type == 'right'}">
+    <link name="${prefix}_tweezer_base_link">
+      <visual>
+        <origin rpy="${pi} 0 ${pi/2}" xyz="-0.133 0.048 0.0"/>
+        <geometry>
+          <mesh filename="package://micro_resector_description/meshes/tools/tweezer_right.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="green"/>
+      </visual>
+      <collision>
+        <origin rpy="${pi} 0 ${pi/2}" xyz="-0.133 0.048 0.0"/>
+        <geometry>
+          <mesh filename="package://micro_resector_description/meshes/tools/tweezer_right.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.1" />
+        <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+    </link>
+
+    <link name="${prefix}_tweezer_prong_link"/>
+      
+    <joint name="${prefix}_tweezer_joint" type="fixed">
+      <origin rpy="0 ${pi/2} 0" xyz="-0.015639 0.008 -0.15847"/>
+      <parent link="${prefix}_tweezer_base_link"/>
+      <child link="${prefix}_tweezer_prong_link"/>
+    </joint>
+  </xacro:if>
+
+</xacro:macro>
+
+</robot>

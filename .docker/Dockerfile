@@ -2,6 +2,7 @@ FROM ros:noetic-robot
 
 RUN apt update &&\
     apt install -y \
+    ros-noetic-joint-state-publisher-gui \
     python3-catkin-tools \
     python3-rosdep \
     python3-rosinstall-generator \
