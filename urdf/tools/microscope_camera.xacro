@@ -12,13 +12,13 @@
             <collision>
                 <origin xyz="${-camera_dim/2} 0 0 " rpy="0 ${-pi/2} 0"/>
                 <geometry>
-                    <cylinder radius="${-camera_dim/2}" length="${camera_dim}"/>
+                    <cylinder radius="${camera_dim/2}" length="${camera_dim}"/>
                 </geometry>
             </collision>
             <visual>
                 <origin xyz="${-camera_dim/2} 0 0" rpy="0 ${-pi/2} 0"/>
                 <geometry>
-                    <cylinder radius="${-camera_dim/2}" length="${camera_dim}"/>
+                    <cylinder radius="${camera_dim/2}" length="${camera_dim}"/>
                 </geometry>
                 <material name="red"/>
             </visual>
