@@ -1,5 +1,6 @@
 <launch>
   <arg name="model" default="$(find micro_resector_description)/urdf/full_setup.urdf.xacro"/>
+<!--  <arg name="model" default="$(find micro_resector_description)/urdf/single_tool_holder.urdf.xacro"/>-->
   <arg name="gui" default="true"/>
   <arg name="rvizconfig" default="$(find micro_resector_description)/launch/urdf.rviz"/>
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>

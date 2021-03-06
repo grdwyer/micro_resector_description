@@ -4,21 +4,20 @@
 <xacro:macro name="scalpel" params="prefix">
   <link name="${prefix}_scalpel_base_link">
     <inertial>
-      <origin rpy="-${pi/2} -${pi/2} 0" xyz="0.0 0.0075 0.0"/>
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
       <mass value="0.058579061972031825"/>
       <inertia ixx="1.2e-05" ixy="-0.0" ixz="-0.0" iyy="2.4e-05" iyz="0.0" izz="1.2e-05"/>
     </inertial>
     <visual>
-      <origin rpy="${pi} -${pi/2} 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://micro_resector_description/meshes/tools/scalpel_assembly.stl"/>
+        <mesh filename="package://micro_resector_description/meshes/tools/blade_sm65.dae"/>
       </geometry>
-      <material name="blue"/>
     </visual>
     <collision>
-      <origin rpy="${pi} -${pi/2} 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://micro_resector_description/meshes/tools/scalpel_assembly.stl"/>
+        <mesh filename="package://micro_resector_description/meshes/tools/blade_sm65.dae"/>
       </geometry>
     </collision>
   </link>
@@ -26,7 +25,7 @@
   <link name="${prefix}_scalpel_blade_base_link"/>
     
   <joint name="${prefix}_scalpel_joint" type="fixed">
-    <origin rpy="0 ${pi/2} 0" xyz="-0.016431 0.003 -0.089528"/>
+    <origin rpy="${-pi/2} 0 ${20.487 * pi/180}" xyz="0.024506 -0.00115 0"/>
     <parent link="${prefix}_scalpel_base_link"/>
     <child link="${prefix}_scalpel_blade_base_link"/>
   </joint>

@@ -3,6 +3,9 @@
     
     <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
     <xacro:arg name="prefix" default="x"/>
+    <xacro:arg name="virtual_joints" default="false"/>
+    <xacro:arg name="camera" default="true"/>
+
     <link name="base_link"/>
 
     <xacro:include filename="$(find micro_resector_description)/urdf/materials.xacro" />
@@ -11,40 +14,74 @@
     <xacro:include filename="$(find micro_resector_description)/urdf/sample_holder_system.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/tools/microscope_camera.xacro"/>
 
-    <joint name="tweezer_to_base" type="fixed">
-        <parent link="base_link"/>
-        <child link="tweezer_system_base_link"/>
-        <origin xyz="0.0990 -0.037525 0.00" rpy="0 0.0 0"/>
-    </joint>
-    
-    <xacro:tweezer_system hardware_interface="$(arg hardware_interface)">
+    <xacro:if value="$(arg virtual_joints)">
+        <joint name="tweezer_to_base" type="floating">
+            <parent link="base_link"/>
+            <child link="tweezer_system_base_link"/>
+            <origin xyz="0.0990 -0.037525 0.00" rpy="0 0.0 0"/>
+        </joint>
+
+        <joint name="scalpel_to_base" type="floating">
+            <parent link="base_link"/>
+            <child link="scalpel_system_base_link"/>
+            <origin xyz="-0.0990 -0.037525 0.00" rpy="0.0 0.0 ${pi/2}"/>
+        </joint>
+
+        <joint name="sample_holder_to_base" type="floating">
+            <parent link="base_link"/>
+            <child link="sample_holder_base_link"/>
+            <origin xyz="0 0 0.00" rpy="0 0.0 0.0"/>
+        </joint>
+
+        <xacro:if value="$(arg camera)">
+            <joint name="camera_joint" type="floating">
+                <origin xyz="0 0 0.1" rpy="0 ${pi/2} 0"/>
+                <parent link="base_link"/>
+                <child link="camera_link"/>
+            </joint>
+        </xacro:if>
+    </xacro:if>
+
+    <xacro:unless value="$(arg virtual_joints)">
+        <joint name="tweezer_to_base" type="fixed">
+            <parent link="base_link"/>
+            <child link="tweezer_system_base_link"/>
+            <origin xyz="0.0990 -0.037525 0.00" rpy="0 0.0 ${pi}"/>
+        </joint>
+
+        <joint name="scalpel_to_base" type="fixed">
+            <parent link="base_link"/>
+            <child link="scalpel_system_base_link"/>
+            <origin xyz="-0.0990 -0.037525 0.00" rpy="0.0 0.0 0"/>
+        </joint>
+
+        <joint name="sample_holder_to_base" type="fixed">
+            <parent link="base_link"/>
+            <child link="sample_holder_base_link"/>
+            <origin xyz="0 0 0.00" rpy="0 0.0 0.0"/>
+        </joint>
+
+        <xacro:if value="$(arg camera)">
+            <joint name="camera_joint" type="fixed">
+                <origin xyz="0 0 0.1" rpy="0 ${pi/2} 0"/>
+                <parent link="base_link"/>
+                <child link="camera_link"/>
+            </joint>
+        </xacro:if>
+    </xacro:unless>
+
+    <xacro:tweezer_system hardware_interface="$(arg hardware_interface)" name="tweezer">
     </xacro:tweezer_system>
 
-    <joint name="scalpel_to_base" type="fixed">
-        <parent link="base_link"/>
-        <child link="scalpel_system_base_link"/>
-        <origin xyz="-0.0990 -0.037525 0.00" rpy="0.0 0.0 0.0"/>
-    </joint>
-    
-    <xacro:scalpel_system hardware_interface="$(arg hardware_interface)">
+    <xacro:scalpel_system hardware_interface="$(arg hardware_interface)" name="scalpel">
     </xacro:scalpel_system>
-
-    <joint name="sample_holder_to_base" type="fixed">
-        <parent link="base_link"/>
-        <child link="sample_holder_base_link"/>
-        <origin xyz="0 0 0.00" rpy="0 0.0 0.0"/>
-    </joint>
 
     <xacro:sample_holder hardware_interface="$(arg hardware_interface)">
     </xacro:sample_holder>
 
-    <joint name="camera_joint" type="fixed">
-        <origin xyz="0 0 0.1" rpy="0 ${pi/2} 0"/>
-        <parent link="base_link"/>
-        <child link="camera_link"/>
-    </joint>
-
-    <xacro:microscope_camera type="mono"/>
+    <xacro:if value="$(arg camera)">
+        <xacro:microscope_camera type="mono"/>
+    </xacro:if>
 
     <joint name="sample_joint" type="fixed">
         <parent link="sample_link"/>

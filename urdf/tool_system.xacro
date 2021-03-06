@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="scalpel_system">
+    
+    <xacro:include filename="$(find micro_resector_description)/urdf/stage/linear_stage.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/link/l_bracket.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/tools/scalpel.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/tools/tool_holder.xacro"/>
+
+    <xacro:macro name="tool_system" params="hardware_interface name">
+        <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+        <xacro:arg name="prefix" default="x"/>
+        <xacro:arg name="name" default="tool"/>
+
+        <link name="$(arg name)_system_base_link"/>
+
+        <joint name="$(arg name)_x_linear_stage_world_joint" type="fixed">
+            <parent link="$(arg name)_system_base_link"/>
+            <child link="$(arg name)_x_lin_base_link"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </joint>
+        
+        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="$(arg name)_x">
+        </xacro:linear_stage>
+
+        <joint name="$(arg name)_y_linear_stage_joint" type="fixed">
+            <parent link="$(arg name)_x_lin_stage_link"/>
+            <child link="$(arg name)_y_lin_base_link"/>
+            <origin xyz="0 0 0" rpy="0 0 ${-pi/2}"/>
+<!--            <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 ${pi/2}"/>-->
+        </joint>
+        
+        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="$(arg name)_y">
+        </xacro:linear_stage>
+
+        <joint name="$(arg name)_l_bracket_joint" type="fixed">
+            <parent link="$(arg name)_y_lin_stage_link"/>
+            <child link="$(arg name)_z_bracket_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 0 ${pi}"/>
+        </joint>
+
+        <xacro:l_bracket prefix="$(arg name)_z">
+        </xacro:l_bracket>
+
+        <joint name="$(arg name)_z_linear_stage_joint" type="fixed">
+            <parent link="$(arg name)_z_bracket_side_link"/>
+            <child link="$(arg name)_z_lin_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0 0 -${pi/2}"/>
+        </joint>
+        
+        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="$(arg name)_z">
+        </xacro:linear_stage>
+
+        <joint name="$(arg name)_tool_holder_joint" type="fixed">-->
+            <parent link="$(arg name)_z_lin_stage_link"/>
+            <child link="$(arg name)_tool_holder_link"/>
+            <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+        </joint>
+
+        <xacro:tool_holder name="$(arg name)">
+        </xacro:tool_holder>
+
+<!--        <joint name="$(arg name)_attachment_joint" type="fixed">-->
+<!--            <parent link="$(arg name)_tool_attachment_link"/>-->
+<!--            <child link="scalpel_z_scalpel_base_link"/>-->
+<!--            <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 0.0"/>-->
+<!--        </joint>-->
+
+<!--        <xacro:scalpel prefix="scalpel_z">-->
+<!--        </xacro:scalpel>-->
+    </xacro:macro>
+    
+
+</robot>

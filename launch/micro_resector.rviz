@@ -365,7 +365,7 @@ Visualization Manager:
       Marker Topic: /micro_rector_interface/markers
       Name: Marker
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -396,7 +396,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.04474599286913872
+      Distance: 0.23164209723472595
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -404,17 +404,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.003514136653393507
-        Y: 0.022455982863903046
-        Z: 0.04205506294965744
+        X: -0.0001475319149903953
+        Y: -0.0006293112528510392
+        Z: 0.012441511265933514
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5503978729248047
+      Pitch: 0.8953986763954163
       Target Frame: <Fixed Frame>
-      Yaw: 1.5935900211334229
+      Yaw: 1.3835890293121338
     Saved: ~
 Window Geometry:
   Camera:

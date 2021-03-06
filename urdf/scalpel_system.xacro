@@ -1,57 +1,69 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="scalpel_system">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     
     <xacro:include filename="$(find micro_resector_description)/urdf/stage/linear_stage.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/link/l_bracket.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/tools/scalpel.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/tools/tool_holder.xacro"/>
 
-    <xacro:macro name="scalpel_system" params="hardware_interface">
-        <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
-        <xacro:arg name="prefix" default="x"/>
-        <link name="scalpel_system_base_link"/>
+    <xacro:macro name="scalpel_system" params="hardware_interface name">
+<!--        <xacro:arg name="hardware_interface" default="PositionJointInterface"/>-->
+<!--        <xacro:arg name="name" default="scalpel"/>-->
 
-        <joint name="scalpel_x_linear_stage_world_joint" type="fixed">
-            <parent link="scalpel_system_base_link"/>
-            <child link="scalpel_x_lin_base_link"/>
-            <origin xyz="0.0 0.0 0.00" rpy="${pi/2} 0.0 0.0"/>
+        <link name="${name}_system_base_link"/>
+
+        <joint name="${name}_x_linear_stage_world_joint" type="fixed">
+            <parent link="${name}_system_base_link"/>
+            <child link="${name}_x_lin_base_link"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
         </joint>
-        
-        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="scalpel_x">
+
+        <xacro:linear_stage hardware_interface="${hardware_interface}" prefix="${name}_x">
         </xacro:linear_stage>
 
-        <joint name="scalpel_y_linear_stage_joint" type="fixed">
-            <parent link="scalpel_x_lin_stage_link"/>
-            <child link="scalpel_y_lin_base_link"/>
-            <origin xyz="0.0 0.0 0.00" rpy="0.0 ${pi/2} 0.0"/>
+        <joint name="${name}_y_linear_stage_joint" type="fixed">
+            <parent link="${name}_x_lin_stage_link"/>
+            <child link="${name}_y_lin_base_link"/>
+            <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+<!--            <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 ${pi/2}"/>-->
         </joint>
-        
-        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="scalpel_y">
+
+        <xacro:linear_stage hardware_interface="${hardware_interface}" prefix="${name}_y">
         </xacro:linear_stage>
 
-        <joint name="scalpel_l_bracket_joint" type="fixed">
-            <parent link="scalpel_y_lin_stage_link"/>
-            <child link="scalpel_z_bracket_base_link"/>
-            <origin xyz="0.0 0.0 0.00" rpy="0.0 ${pi/2} 0.0"/>
+        <joint name="${name}_l_bracket_joint" type="fixed">
+            <parent link="${name}_y_lin_stage_link"/>
+            <child link="${name}_z_bracket_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0.0 0 ${pi/2}"/>
         </joint>
 
-        <xacro:l_bracket prefix="scalpel_z">
+        <xacro:l_bracket prefix="${name}_z">
         </xacro:l_bracket>
 
-        <joint name="scalpel_z_linear_stage_joint" type="fixed">
-            <parent link="scalpel_z_bracket_side_link"/>
-            <child link="scalpel_z_lin_base_link"/>
-            <origin xyz="0.0 0.0 0.00" rpy="0.0 ${pi/2} 0.0"/>
+        <joint name="${name}_z_linear_stage_joint" type="fixed">
+            <parent link="${name}_z_bracket_side_link"/>
+            <child link="${name}_z_lin_base_link"/>
+            <origin xyz="0.0 0.0 0.00" rpy="0 0 -${pi/2}"/>
         </joint>
-        
-        <xacro:linear_stage hardware_interface="$(arg hardware_interface)" prefix="scalpel_z">
+
+        <xacro:linear_stage hardware_interface="${hardware_interface}" prefix="${name}_z">
         </xacro:linear_stage>
 
-        <joint name="scalpel_joint" type="fixed">
-            <parent link="scalpel_z_lin_stage_link"/>
+        <joint name="${name}_tool_holder_joint" type="fixed">-->
+            <parent link="${name}_z_lin_stage_link"/>
+            <child link="${name}_tool_holder_link"/>
+            <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+        </joint>
+
+        <xacro:tool_holder name="${name}">
+        </xacro:tool_holder>
+
+        <joint name="${name}_attachment_joint" type="fixed">
+            <parent link="${name}_tool_attachment_link"/>
             <child link="scalpel_z_scalpel_base_link"/>
             <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 0.0"/>
         </joint>
-        
+
         <xacro:scalpel prefix="scalpel_z">
         </xacro:scalpel>
     </xacro:macro>
