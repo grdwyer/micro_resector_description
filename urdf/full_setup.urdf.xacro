@@ -18,13 +18,13 @@
         <joint name="tweezer_to_base" type="floating">
             <parent link="base_link"/>
             <child link="tweezer_system_base_link"/>
-            <origin xyz="0.0990 -0.037525 0.00" rpy="0 0.0 0"/>
+            <origin xyz="0.098 -0.0375 0.00" rpy="0 0.0 0"/>
         </joint>
 
         <joint name="scalpel_to_base" type="floating">
             <parent link="base_link"/>
             <child link="scalpel_system_base_link"/>
-            <origin xyz="-0.0990 -0.037525 0.00" rpy="0.0 0.0 ${pi/2}"/>
+            <origin xyz="-0.098 -0.0375 0.00" rpy="0.0 0.0 0"/>
         </joint>
 
         <joint name="sample_holder_to_base" type="floating">
@@ -46,13 +46,13 @@
         <joint name="tweezer_to_base" type="fixed">
             <parent link="base_link"/>
             <child link="tweezer_system_base_link"/>
-            <origin xyz="0.0990 -0.037525 0.00" rpy="0 0.0 ${pi}"/>
+            <origin xyz="0.098 -0.0375 0.00" rpy="0 0 ${pi}"/>
         </joint>
 
         <joint name="scalpel_to_base" type="fixed">
             <parent link="base_link"/>
             <child link="scalpel_system_base_link"/>
-            <origin xyz="-0.0990 -0.037525 0.00" rpy="0.0 0.0 0"/>
+            <origin xyz="-0.098 -0.0375 0.00" rpy="0.0 0.0 0"/>
         </joint>
 
         <joint name="sample_holder_to_base" type="fixed">
