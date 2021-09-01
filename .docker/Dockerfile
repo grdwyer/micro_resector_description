@@ -1,23 +1,33 @@
-FROM ros:noetic-robot
+FROM ros:foxy
 
 RUN apt update &&\
     apt install -y \
-    ros-noetic-joint-state-publisher-gui \
-    python3-catkin-tools \
-    python3-rosdep \
-    python3-rosinstall-generator \
-    python3-vcstool \
+    software-properties-common \
+    ssh \
+    git \
+    udev \
+    usbutils \
+    libboost-dev \
     python3-pip \
-    ros-noetic-rviz
+    python3-vcstool \
+    build-essential \
+    cmake \
+    python3-colcon-common-extensions \
+    python3-flake8 \
+    python3-pytest-cov \
+    python3-rosdep \
+    python3-setuptools \
+    python3-vcstool \
+    ros-foxy-xacro \
+    wget \
+    ros-foxy-joint-state-publisher-gui \
+    ros-foxy-rviz2 \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install catkin_tools
+RUN mkdir -p /dev_ws/src
+WORKDIR /dev_ws/src/
+COPY . /dev_ws/src/micro_resector_description
 
-RUN rosdep update
-
-RUN mkdir -p /catkin_ws/src
-WORKDIR /catkin_ws/src/
-COPY . /catkin_ws/src/micro_resector_description
-
-WORKDIR /catkin_ws/
-RUN ["/bin/bash", "-c", "source /opt/ros/noetic/setup.bash && \
-    catkin build"]
+WORKDIR /dev_ws/
+RUN ["/bin/bash", "-c", "source /opt/ros/foxy/setup.bash && \
+    colcon build"]
