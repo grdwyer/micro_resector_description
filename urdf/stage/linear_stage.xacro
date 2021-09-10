@@ -55,6 +55,7 @@
     <limit effort="100" lower="-0.015" upper="0.015" velocity="0.0045"/>
   </joint>
 
+<!--  These are likely unnecessary in ros2 and should be removed-->
   <xacro:stage_gazebo prefix="${prefix}" type="lin"/>
   <xacro:stage_transmission prefix="${prefix}" hardware_interface="${hardware_interface}" type="lin"/>
 

@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="micro_resector_control" params="name hardware:=false">
+        <xacro:property name="linear_position_limit" value="0.015"/>
+
+        <ros2_control name="${name}" type="system">
+            <hardware>
+                <xacro:if value="${hardware}">
+                    <plugin>attocube_hardware_interface/AttocubeHardwareInterface</plugin>
+                </xacro:if>
+                <xacro:unless value="${hardware}">
+                    <plugin>fake_components/GenericSystem</plugin>
+                </xacro:unless>
+            </hardware>
+            <joint name="tweezer_x_lin_joint">
+                <command_interface name="position">
+                    <param name="min">-${linear_position_limit}</param>
+                    <param name="max">${linear_position_limit}</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <xacro:if value="${hardware}">
+                    <param name="device" value="3"/>
+                    <param name="axis" value="0"/>
+                    <param name="type" value="6"/>
+                    <param name="voltage" value="35000"/>
+                    <param name="frequency" value="20000"/>
+                </xacro:if>
+            </joint>
+            <joint name="tweezer_y_lin_joint">
+                <command_interface name="position">
+                    <param name="min">-${linear_position_limit}</param>
+                    <param name="max">${linear_position_limit}</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <xacro:if value="${hardware}">
+                    <param name="device" value="3"/>
+                    <param name="axis" value="1"/>
+                    <param name="type" value="6"/>
+                    <param name="voltage" value="35000"/>
+                    <param name="frequency" value="20000"/>
+                </xacro:if>
+            </joint>
+            <joint name="tweezer_z_lin_joint">
+                <command_interface name="position">
+                    <param name="min">-${linear_position_limit}</param>
+                    <param name="max">${linear_position_limit}</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <xacro:if value="${hardware}">
+                    <param name="device" value="3"/>
+                    <param name="axis" value="1"/>
+                    <param name="type" value="6"/>
+                    <param name="voltage" value="35000"/>
+                    <param name="frequency" value="20000"/>
+                </xacro:if>
+
+            </joint>
+
+            <joint name="scalpel_x_lin_joint">
+                <command_interface name="position">
+                    <param name="min">-${linear_position_limit}</param>
+                    <param name="max">${linear_position_limit}</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <xacro:if value="${hardware}">
+                    <param name="device" value="1"/>
+                    <param name="axis" value="0"/>
+                    <param name="type" value="6"/>
+                    <param name="voltage" value="35000"/>
+                    <param name="frequency" value="20000"/>
+                </xacro:if>
+            </joint>
+            <joint name="scalpel_y_lin_joint">
+                <command_interface name="position">
+                    <param name="min">-${linear_position_limit}</param>
+                    <param name="max">${linear_position_limit}</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <xacro:if value="${hardware}">
+                    <param name="device" value="1"/>
+                    <param name="axis" value="1"/>
+                    <param name="type" value="6"/>
+                    <param name="voltage" value="35000"/>
+                    <param name="frequency" value="20000"/>
+                </xacro:if>
+            </joint>
+            <joint name="scalpel_z_lin_joint">
+                <command_interface name="position">
+                    <param name="min">-${linear_position_limit}</param>
+                    <param name="max">${linear_position_limit}</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <xacro:if value="${hardware}">
+                    <param name="device" value="1"/>
+                    <param name="axis" value="2"/>
+                    <param name="type" value="6"/>
+                    <param name="voltage" value="35000"/>
+                    <param name="frequency" value="20000"/>
+                </xacro:if>
+            </joint>
+
+            <joint name="centre_rot_joint">
+                <command_interface name="position"/>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <xacro:if value="${hardware}">
+                    <param name="device" value="2"/>
+                    <param name="axis" value="0"/>
+                    <param name="type" value="14"/>
+                    <param name="voltage" value="35000"/>
+                    <param name="frequency" value="20000"/>
+                </xacro:if>
+            </joint>
+        </ros2_control>
+    </xacro:macro>
+
+</robot>

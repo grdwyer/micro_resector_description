@@ -4,7 +4,8 @@
     <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
     <xacro:arg name="prefix" default="x"/>
     <xacro:arg name="virtual_joints" default="false"/>
-    <xacro:arg name="camera" default="true"/>
+    <xacro:arg name="camera" default="false"/>
+    <xacro:arg name="hardware" default="false"/>
 
     <link name="base_link"/>
 
@@ -13,6 +14,7 @@
     <xacro:include filename="$(find micro_resector_description)/urdf/scalpel_system.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/sample_holder_system.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/tools/microscope_camera.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/micro_resector.ros2_control.xacro"/>
 
     <xacro:if value="$(arg virtual_joints)">
         <joint name="tweezer_to_base" type="floating">
@@ -91,4 +93,7 @@
     <xacro:include filename="$(find micro_resector_description)/urdf/samples/brain_slice.urdf.xacro"/>
 
     <xacro:include filename="$(find micro_resector_description)/urdf/full_setup.gazebo.xacro"/>
+
+    <xacro:micro_resector_control name="MicroResectorPositionHardwareInterface"
+                              hardware="$(arg hardware)"/>
 </robot>
