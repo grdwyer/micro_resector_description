@@ -15,12 +15,12 @@
         </geometry>
         <material name="white"/>
         </visual>
-        <collision>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <geometry>
-            <mesh filename="package://micro_resector_description/meshes/samples/brain_slice.stl" scale="0.002 0.002 0.002"/>
-        </geometry>
-        </collision>
+<!--        <collision>-->
+<!--        <origin rpy="0 0 0" xyz="0 0 0"/>-->
+<!--        <geometry>-->
+<!--            <mesh filename="package://micro_resector_description/meshes/samples/brain_slice.stl" scale="0.002 0.002 0.002"/>-->
+<!--        </geometry>-->
+<!--        </collision>-->
     </link>
     <gazebo reference="brain_slice_base_link">
         <mu1>0.2</mu1>
