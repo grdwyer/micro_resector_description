@@ -21,7 +21,7 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">3</param>
+                    <param name="device">2</param>
                     <param name="axis">0</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
@@ -36,11 +36,11 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">3</param>
+                    <param name="device">2</param>
                     <param name="axis">1</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
-                    <param name="frequency">200000</param>
+                    <param name="frequency">2000000</param>
                 </xacro:if>
             </joint>
             <joint name="tweezer_z_lin_joint">
@@ -51,13 +51,12 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">3</param>
-                    <param name="axis">1</param>
+                    <param name="device">2</param>
+                    <param name="axis">2</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
-                    <param name="frequency">200000</param>
+                    <param name="frequency">2000000</param>
                 </xacro:if>
-
             </joint>
 
             <joint name="scalpel_x_lin_joint">
@@ -68,11 +67,11 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">1</param>
+                    <param name="device">0</param>
                     <param name="axis">0</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
-                    <param name="frequency">200000</param>
+                    <param name="frequency">2000000</param>
                 </xacro:if>
             </joint>
             <joint name="scalpel_y_lin_joint">
@@ -83,11 +82,11 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">1</param>
+                    <param name="device">0</param>
                     <param name="axis">1</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
-                    <param name="frequency">200000</param>
+                    <param name="frequency">2000000</param>
                 </xacro:if>
             </joint>
             <joint name="scalpel_z_lin_joint">
@@ -98,11 +97,11 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">1</param>
+                    <param name="device">0</param>
                     <param name="axis">2</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
-                    <param name="frequency">200000</param>
+                    <param name="frequency">2000000</param>
                 </xacro:if>
             </joint>
 
@@ -111,11 +110,11 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">2</param>
+                    <param name="device">1</param>
                     <param name="axis">0</param>
                     <param name="type">14</param>
                     <param name="voltage">40000</param>
-                    <param name="frequency">200000</param>
+                    <param name="frequency">2000000</param>
                 </xacro:if>
             </joint>
         </ros2_control>
