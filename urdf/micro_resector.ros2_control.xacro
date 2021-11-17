@@ -3,6 +3,9 @@
 
     <xacro:macro name="micro_resector_control" params="name hardware:=false">
         <xacro:property name="linear_position_limit" value="0.015"/>
+        <xacro:property name="tweezer_device" value="2"/>
+        <xacro:property name="scalpel_device" value="3"/>
+        <xacro:property name="sample_holder_device" value="1"/>
 
         <ros2_control name="${name}" type="system">
             <hardware>
@@ -21,7 +24,7 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">2</param>
+                    <param name="device">${tweezer_device}</param>
                     <param name="axis">0</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
@@ -36,7 +39,7 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">2</param>
+                    <param name="device">${tweezer_device}</param>
                     <param name="axis">1</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
@@ -51,7 +54,7 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">2</param>
+                    <param name="device">${tweezer_device}</param>
                     <param name="axis">2</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
@@ -67,7 +70,7 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">0</param>
+                    <param name="device">${scalpel_device}</param>
                     <param name="axis">0</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
@@ -82,7 +85,7 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">0</param>
+                    <param name="device">${scalpel_device}</param>
                     <param name="axis">1</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
@@ -97,7 +100,7 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">0</param>
+                    <param name="device">${scalpel_device}</param>
                     <param name="axis">2</param>
                     <param name="type">6</param>
                     <param name="voltage">40000</param>
@@ -110,7 +113,7 @@
                 <state_interface name="position"/>
                 <state_interface name="velocity"/>
                 <xacro:if value="${hardware}">
-                    <param name="device">1</param>
+                    <param name="device">${sample_holder_device}</param>
                     <param name="axis">0</param>
                     <param name="type">14</param>
                     <param name="voltage">40000</param>
