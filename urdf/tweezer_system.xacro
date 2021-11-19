@@ -3,7 +3,7 @@
     
     <xacro:include filename="$(find micro_resector_description)/urdf/stage/linear_stage.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/link/l_bracket.xacro"/>
-    <xacro:include filename="$(find micro_resector_description)/urdf/tools/tweezer.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/tools/tweezer_reinforced.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/tools/tool_holder.xacro"/>
 
     <xacro:macro name="tweezer_system" params="hardware_interface name">

@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<robot name="tweezer" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="tweezer" params="prefix">
+  <link name="${prefix}_tweezer_base_link">
+    <inertial>
+      <origin rpy="${pi/2} -${pi/2} 0" xyz="0.0 0.0075 0.0"/>
+      <mass value="0.058579061972031825"/>
+      <inertia ixx="1.2e-05" ixy="-0.0" ixz="-0.0" iyy="2.4e-05" iyz="0.0" izz="1.2e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="-${pi/2} 0 0.36" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://micro_resector_description/meshes/tools/reinforced_tweezer.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-${pi/2} 0 0.36" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://micro_resector_description/meshes/tools/reinforced_tweezer.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="${prefix}_tweezer_prong_centre_link"/>
+    
+  <joint name="${prefix}_tweezer_joint" type="fixed">
+    <origin rpy="${-pi/2} 0 ${21.063 * pi/180}" xyz="0.033680 0.000772 0"/> <!--model->urdf x->-z, y->y, z->-x -->
+    <parent link="${prefix}_tweezer_base_link"/>
+    <child link="${prefix}_tweezer_prong_centre_link"/>
+  </joint>
+
+  <link name="${prefix}_tweezer_left_prong_tip_link"/>
+    
+  <joint name="${prefix}_tweezer_left_prong_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.00106 0.00035 0"/>
+    <parent link="${prefix}_tweezer_prong_centre_link"/>
+    <child link="${prefix}_tweezer_left_prong_tip_link"/>
+  </joint>
+
+  <link name="${prefix}_tweezer_right_prong_tip_link"/>
+    
+  <joint name="${prefix}_tweezer_right_prong_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.00106 -0.00035 0"/>
+    <parent link="${prefix}_tweezer_prong_centre_link"/>
+    <child link="${prefix}_tweezer_right_prong_tip_link"/>
+  </joint>
+</xacro:macro>
+
+</robot>

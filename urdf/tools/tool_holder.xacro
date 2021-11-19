@@ -26,7 +26,7 @@
         <joint name="${name}_joint" type="fixed">
             <parent link="${name}_tool_holder_link"/>
             <child link="${name}_tool_attachment_link"/>
-            <origin xyz="-0.067062 -0.006575 0.003" rpy="${pi} 0 ${-159.0 * pi/180}"/>
+            <origin xyz="-0.065195 -0.005859 0.003" rpy="${pi} 0 ${-159.0 * pi/180}"/>
         </joint>
 
         <link name="${name}_tool_attachment_link"/>
