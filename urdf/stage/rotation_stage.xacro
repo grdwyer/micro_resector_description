@@ -48,7 +48,7 @@
   </link>
 
   <joint name="${prefix}_rot_joint" type="continuous">
-    <origin rpy="0 0 0" xyz="0.0 0.015 0.0"/>
+    <origin rpy="0 ${pi/4} 0" xyz="0.0 0.015 0.0"/>
     <parent link="${prefix}_rot_base_link"/>
     <child link="${prefix}_rot_stage_link"/>
     <axis xyz="0 -1 0.0"/>
