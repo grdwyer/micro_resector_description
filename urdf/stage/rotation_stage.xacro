@@ -33,14 +33,14 @@
       <inertia ixx="2.3e-05" ixy="0.0" ixz="0.0" iyy="4.6e-05" iyz="0.0" izz="2.3e-05"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0.0 -0.005 -0.0"/>
+      <origin rpy="0 ${pi/4} 0" xyz="0.0 -0.005 -0.0"/>
       <geometry>
         <mesh filename="package://micro_resector_description/meshes/stage/rot_stage_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0 -0.005 -0.0"/>
+      <origin rpy="0 ${pi/4} 0" xyz="0.0 -0.005 -0.0"/>
       <geometry>
         <mesh filename="package://micro_resector_description/meshes/stage/rot_stage_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -48,7 +48,7 @@
   </link>
 
   <joint name="${prefix}_rot_joint" type="continuous">
-    <origin rpy="0 ${pi/4} 0" xyz="0.0 0.015 0.0"/>
+    <origin rpy="0 0 0" xyz="0.0 0.015 0.0"/>
     <parent link="${prefix}_rot_base_link"/>
     <child link="${prefix}_rot_stage_link"/>
     <axis xyz="0 -1 0.0"/>
