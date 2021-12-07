@@ -4,7 +4,7 @@
     <xacro:include filename="$(find micro_resector_description)/urdf/stage/linear_stage.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/link/l_bracket.xacro"/>
     <xacro:include filename="$(find micro_resector_description)/urdf/tools/tweezer_reinforced.xacro"/>
-    <xacro:include filename="$(find micro_resector_description)/urdf/tools/tool_holder.xacro"/>
+    <xacro:include filename="$(find micro_resector_description)/urdf/tools/tweezer_assembly.xacro"/>
 
     <xacro:macro name="tweezer_system" params="hardware_interface name">
 <!--        <xacro:arg name="hardware_interface" default="PositionJointInterface"/>-->
@@ -49,23 +49,15 @@
         <xacro:linear_stage hardware_interface="${hardware_interface}" prefix="${name}_z">
         </xacro:linear_stage>
 
-        <joint name="${name}_tool_holder_joint" type="fixed">-->
+        <xacro:tweezer_assembly>
+        </xacro:tweezer_assembly>
+
+
+        <joint name="tweezer_assembly_joint" type="fixed">
             <parent link="${name}_z_lin_stage_link"/>
-            <child link="${name}_tool_holder_link"/>
-            <origin xyz="0 0 0.006" rpy="0 ${pi} ${pi/2}"/>
+            <child link="tweezer_tool_holder_link"/>
+            <origin xyz="0 0 0" rpy="${-pi/2} 0 ${pi/2}"/>
         </joint>
-
-        <xacro:tool_holder name="${name}">
-        </xacro:tool_holder>
-
-        <joint name="${name}_attachment_joint" type="fixed">
-            <parent link="${name}_tool_attachment_link"/>
-            <child link="tweezer_z_tweezer_base_link"/>
-            <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 0.0"/>
-        </joint>
-
-        <xacro:tweezer prefix="tweezer_z">
-        </xacro:tweezer>
     </xacro:macro>
     
 

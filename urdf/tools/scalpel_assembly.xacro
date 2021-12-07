@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="scalpel_assembly">
+    <xacro:macro name="scalpel_assembly">
+
+        <link name="scalpel_tool_holder_link">
+            <inertial>
+                <origin rpy="0 0 0" xyz="0.0 0.0075 0.0"/>
+                <mass value="0.058579061972031825"/>
+                <inertia ixx="1.2e-05" ixy="-0.0" ixz="-0.0" iyy="2.4e-05" iyz="0.0" izz="1.2e-05"/>
+            </inertial>
+            <visual>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://micro_resector_description/meshes/tools/scalpel_tool.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://micro_resector_description/meshes/tools/scalpel_tool.stl"/>
+                </geometry>
+            </collision>
+        </link>
+
+
+        <joint name="scalpel_blade_tip_joint" type="fixed">
+            <parent link="scalpel_tool_holder_link"/>
+            <child link="scalpel_blade_tip"/>
+            <origin xyz="-0.095571 -0.003 -0.016019" rpy="0 0 ${pi}"/>
+        </joint>
+
+        <link name="scalpel_blade_tip"/>
+
+        <joint name="scalpel_blade_end_joint" type="fixed">
+            <parent link="scalpel_tool_holder_link"/>
+            <child link="scalpel_blade_end"/>
+            <origin xyz="-0.087571 -0.003 -0.015948" rpy="0 0 ${pi}"/>
+        </joint>
+
+        <link name="scalpel_blade_end"/>
+    </xacro:macro>
+</robot>
