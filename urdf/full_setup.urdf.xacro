@@ -81,6 +81,13 @@
     <xacro:sample_holder hardware_interface="$(arg hardware_interface)">
     </xacro:sample_holder>
 
+    <link name="image_sample_link"/>
+    <joint name="image_sample_link_joint" type="fixed">
+        <origin xyz="0 0 0.0235" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="image_sample_link"/>
+    </joint>
+
     <xacro:if value="$(arg camera)">
         <xacro:microscope_camera type="mono"/>
     </xacro:if>
